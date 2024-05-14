@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Menu</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-image: url('https://cdn.pixabay.com/photo/2019/04/02/04/32/masala-4096891_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 30px 40px; /* Increased padding to adjust height */
+            text-align: center;
+            border-bottom: 6px solid #fff;
+            position: relative; /* Added relative positioning */
+        }
+
+        header::after {
+            content: ''; /* Create pseudo-element */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: -1; /* Place behind the text */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            line-height: 1.2; /* Adjusted line-height for spacing */
+            text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Added text shadow */
+            color: rgb(3, 0, 0); /* Set text color to black */
+            font-weight: bold; /* Added font weight */
+            letter-spacing: 2px; /* Added letter spacing */
+        }
+
+        p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            color: black; /* Change text color to black */
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Add white shadow */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            margin-top: 20px;
+            text-transform: uppercase; /* Convert menu items to uppercase */
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 100px; /* Increased margin for better spacing */
+            position: relative;
+        }
+
+        nav ul li:first-child {
+            margin-left: 20px; /* Adjusted margin for spacing from the left */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: 0.3s;
+            position: relative; /* Added relative positioning */
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.9);
+            top: 100%;
+            left: 0;
+            width: 200px;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        nav ul ul li {
+            display: block;
+            margin: 0;
+        }
+
+        nav ul ul li a {
+            padding: 10px 20px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        nav ul ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1><b>THE RECIPE</b></h1>
+    <p>FOR BETTER INGREDIENTS</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">HOME PAGE</a></li>
+        <li><a href="recipes.html">RECIPES</a></li>
+        <li><a href="videos.html">VIDEOS</a></li>
+        <li><a href="create_new_menu.html">CREATE NEW MENU</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+    </ul>
+</nav>
+
+<div class="container mt-3">
+    <form id="menuForm">
+        <div class="form-group mb-4">
+            <label for="userName">User Name</label>
+            <input type="text" class="form-control" id="userName" placeholder="Enter your name" required>
+        </div>
+        
+        <div class="form-group mb-4">
+            <label for="dishName">Dish Name</label>
+            <input type="text" class="form-control" id="dishName" placeholder="Enter dish name" required>
+        </div>
+        
+        <div class="form-group mb-4">
+            <label for="category">Category</label>
+            <select class="form-control" id="category" required>
+                <option>Select category</option>
+                <option>Breakfast</option>
+                <option>Lunch</option>
+                <option>Dinner</option>
+            </select>
+        </div>
+        
+        <div class="form-group mb-4">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" rows="3" placeholder="Enter description" required></textarea>
+        </div>
+        
+        <div class="form-group mb-4">
+            <label>Ingredients</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="chicken" value="chicken">
+                <label class="form-check-label" for="chicken">Chicken</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="rice" value="rice">
+                <label class="form-check-label" for="rice">Rice</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="salt" value="salt">
+                <label class="form-check-label" for="salt">Salt</label>
+            </div>
+        </div>
+        
+        <div class="form-group mb-4">
+            <label for="instructions">Instructions</label>
+            <textarea class="form-control" id="instructions" rows="3" placeholder="Enter instructions" required></textarea>
+        </div>
+        
+        <div class="form-group mb-4">
+            <label>Spiciness Level</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="spiciness" id="mild" value="mild" required>
+                <label class="form-check-label" for="mild">Mild</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="spiciness" id="medium" value="medium">
+                <label class="form-check-label" for="medium">Medium</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="spiciness" id="hot" value="hot">
+                <label class="form-check-label" for="hot">Hot</label>
+            </div>
+        </div>
+        
+        <div class="form-group mb-4">
+            <label for="serving">Serving (people)</label>
+            <input type="number" class="form-control" id="serving" placeholder="Enter serving" required>
+        </div>
+        
+        <div class="form-group mb-4">
+            <label for="servingTime">Serving Time</label>
+            <input type="text" class="form-control" id="servingTime" placeholder="Enter serving time (in hour)" required>
+        </div>
+        
+        <div class="form-group mb-4">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="date" required>
+        </div>
+        
+        <div class="form-group mb-4">
+            <label for="time">Time</label>
+            <input type="time" class="form-control" id="time" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('#menuForm').submit(function(e){
+            e.preventDefault(); // Prevent form submission
+            // Show message
+            alert('You have successfully create your menu!');
+        });
+    });
+</script>
+</body>
+</html>
+

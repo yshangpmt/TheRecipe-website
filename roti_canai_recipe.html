@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - THE RECIPE</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-image: url('https://cdn.pixabay.com/photo/2019/04/02/04/32/masala-4096891_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 30px 40px; /* Increased padding to adjust height */
+            text-align: center;
+            border-bottom: 6px solid #fff;
+            position: relative; /* Added relative positioning */
+        }
+
+        header::after {
+            content: ''; /* Create pseudo-element */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: -1; /* Place behind the text */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            line-height: 1.2; /* Adjusted line-height for spacing */
+            text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Added text shadow */
+            color: rgb(3, 0, 0); /* Set text color to black */
+            font-weight: bold; /* Added font weight */
+            letter-spacing: 2px; /* Added letter spacing */
+        }
+
+        p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            color: black; /* Change text color to black */
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Add white shadow */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            margin-top: 20px;
+            text-transform: uppercase; /* Convert menu items to uppercase */
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 100px; /* Increased margin for better spacing */
+            position: relative;
+        }
+
+        nav ul li:first-child {
+            margin-left: 20px; /* Adjusted margin for spacing from the left */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: 0.3s;
+            position: relative; /* Added relative positioning */
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.9);
+            top: 100%;
+            left: 0;
+            width: 200px;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        nav ul ul li {
+            display: block;
+            margin: 0;
+        }
+
+        nav ul ul li a {
+            padding: 10px 20px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        nav ul ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        main {
+            padding: 20px 40px;
+        }
+
+        .recipe-content {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-top: 50px; /* Add spacing between picture and navigation */
+        }
+
+        .recipe-picture {
+            margin-right: 20px;
+            border: 2px solid #ddd; /* Added border */
+            border-radius: 5px; /* Added border radius */
+            padding: 5px; /* Added padding */
+        }
+
+        .recipe-picture img {
+            max-width: 600px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .recipe-details {
+            flex-grow: 1;
+            margin-bottom: 30px; /* Added margin-bottom for spacing */
+        }
+
+        .recipe-frame {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .recipe-description p,
+        .recipe-details ul,
+        .recipe-details ol {
+            font-size: 1.1em; /* Adjust the font size as needed */
+            text-align: justify;
+        }
+
+        .recipe-description {
+            background-color: #d3d3d3; /* Grey color box for description */
+        }
+
+        .recipe-details ul, .recipe-details ol {
+            background-color: #f5fea2; /* Light yellow color box for ingredients */
+        }
+
+        .recipe-details ol {
+            background-color: #dbdbfc; /* Light purple color box for steps */
+        }
+
+        .recipe-details h2 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .recipe-details li {
+            margin-bottom: 15px; /* Increased spacing between steps */
+        }
+
+        .recipe-details ol {
+            text-align: justify; /* Justify the text for better organization */
+        }
+
+        .recipe-frame ol li {
+            padding-right: 20px; /* Add padding to the right side */
+        }
+
+        .back-button {
+            position: absolute;
+            top: 240px;
+            left: 40px;
+            z-index: 9999;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>THE RECIPE</h1>
+        <p>FOR BETTER INGREDIENTS</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME PAGE</a></li>
+            <li><a href="recipes.html">RECIPES</a></li>
+            <li><a href="videos.html">VIDEOS</a></li>
+            <li><a href="create_new_menu.html">CREATE NEW MENU</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <a href="recipes.html" class="btn btn-primary back-button">
+            <i class="fas fa-arrow-left"></i> Back To Recipes Page
+        </a>
+        <div class="recipe-content">
+            <div class="recipe-picture">
+                <img src="RotiCanai.jpg" alt="Roti Canai">
+            </div>
+
+            <div class="recipe-details">
+                <div class="recipe-frame recipe-description">
+                    <h2>Roti Canai Recipe</h2>
+                    <p>Roti Canai is a popular Malaysian flatbread that is often served with curry or dhal. It's made from simple ingredients like flour, water, salt, and sugar. The dough is kneaded and stretched until thin, then cooked on a hot griddle until golden brown and flaky. Roti Canai is delicious on its own or dipped in your favorite curry.</p>
+                </div>
+
+                <div class="recipe-frame">
+                    <h2>Ingredients:</h2>
+                    <!-- Light yellow color box for ingredients -->
+                    <ul>
+                        <li>4 cups bread flour (520 g)</li>
+                        <li>1 egg, room temperature</li>
+                        <li>3 tablespoons unsalted butter (40 g), melted</li>
+                        <li>1 tablespoon sweetened condensed milk</li>
+                        <li>1 ¼ cup water (310 ml)</li>
+                        <li>1 teaspoon salt</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-frame">
+                    <h2>Instructions:</h2>
+                    <!-- Light purple color box for steps -->
+                    <ol>
+                        <li>In a standing mixer bowl, add in flour, salt, egg, melted butter, condensed milk and water. Mix to incorporate and knead for 10 minutes. Leave to rest for 10 minutes and knead for another 5 minutes.</li>
+                        <li>Divide the dough into 10 small balls. Coat each ball generously with unsalted butter and place them in a container that has been generously buttered. Cover the container tightly with cling film and keep in the fridge overnight.</li>
+                        <li>The next day, spread some unsalted butter on the working surface. Take one ball and lightly flatten it. Press and push the dough with the heel of your palm to make it bigger. Stretch it as thin as possible, until you can almost see through it. Now and then spread some soften unsalted butter on it to help the stretching. Optional, lift up one edge of the dough and gently pull to stretch it even more.</li>
+                        <li>Scrape and push the upper end of the dough to the middle. Do the same to the lower end, forming a wrinkle thin log. Starting at one end of the log, roll it into a circle and tuck the other end inside. Leave aside for 10 minutes before cooking. Meanwhile, you can continue with the rest of the balls.</li>
+                        <li>Once ready to cook, take one rolled circle and flatten it into more or less 10-15 cm diameter. Heat some unsalted butter on a pan using medium heat. Place the flattened dough on the pan. Cook for several minutes and then flip. Continue cooking for some minutes more.</li>
+                        <li>Remove the cooked roti canai and place it on a working surface. Immediately yet carefully grab it using both of your hands and squeeze it to the center. We want to fluff it.</li>
+                        <li>Keep the roti canai under a kitchen cloth to keep them warm. They're best eaten with dhal curry or any type of curry with some sambal. Enjoy!</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

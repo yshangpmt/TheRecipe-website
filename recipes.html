@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - THE RECIPE</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-image: url('https://cdn.pixabay.com/photo/2019/04/02/04/32/masala-4096891_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 30px 40px; /* Increased padding to adjust height */
+            text-align: center;
+            border-bottom: 6px solid #fff;
+            position: relative; /* Added relative positioning */
+        }
+
+        header::after {
+            content: ''; /* Create pseudo-element */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: -1; /* Place behind the text */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            line-height: 1.2; /* Adjusted line-height for spacing */
+            text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Added text shadow */
+            color: rgb(3, 0, 0); /* Set text color to white */
+            font-weight: bold; /* Added font weight */
+            letter-spacing: 2px; /* Added letter spacing */
+        }
+
+        p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            color: black; /* Change text color to black */
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Add white shadow */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            margin-top: 20px;
+            text-transform: uppercase; /* Convert menu items to uppercase */
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 100px; /* Increased margin for better spacing */
+            position: relative;
+        }
+
+        nav ul li:first-child {
+            margin-left: 20px; /* Adjusted margin for spacing from the left */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: 0.3s;
+            position: relative; /* Added relative positioning */
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.9);
+            top: 100%;
+            left: 0;
+            width: 200px;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        nav ul ul li {
+            display: block;
+            margin: 0;
+        }
+
+        nav ul ul li a {
+            padding: 10px 20px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        nav ul ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        main {
+            padding: 20px 40px;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .search-container input[type=text] {
+            padding: 10px;
+            width: 50%;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background-color: #555;
+        }
+
+        .recipe-item {
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .recipe-item img {
+            width: 100%;
+            height: 250px; /* Set a fixed height for consistency */
+            object-fit: cover; /* Ensure the image covers the entire space */
+            border-radius: 5px; /* Added border-radius */
+        }
+
+        .recipe-item .caption {
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 10px; /* Adjusted margin */
+        }
+
+        .recipe-item .caption h3 {
+            margin-top: 0;
+            margin-bottom: 10px; /* Adjusted margin */
+            padding: 10px 0; /* Added padding */
+            border-radius: 5px; /* Added border-radius */
+            color: black; /* Set color to black */
+        }
+
+        /* Add custom colors to each food name box */
+        .recipe-item.roti-canai .caption h3,
+        .recipe-item.dim-sum .caption h3,
+        .recipe-item.nasi-lemak .caption h3 {
+            background-color: #caf2ff; /* Light blue */
+        }
+
+        .recipe-item.creamy-butter-chicken .caption h3,
+        .recipe-item.chicken-fried-rice .caption h3,
+        .recipe-item.nasi-kandar .caption h3 {
+            background-color: #b7ffc4; /* Light green */
+        }
+
+        .recipe-item.chicken-rice-porridge .caption h3,
+        .recipe-item.mixed-vegetable-soup .caption h3,
+        .recipe-item.char-kway-teow .caption h3 {
+            background-color: #fdd2f6; /* Light pink */
+        }
+
+        /* Stylish heading */
+        .breakfast-heading,
+        .lunch-heading,
+        .dinner-heading {
+            font-family: 'Roboto', sans-serif; /* Change font to Roboto */
+            font-size: 2.5em; /* Increased font size */
+            font-weight: bold; /* Set font weight to bold */
+            text-transform: uppercase; /* Convert text to uppercase */
+            letter-spacing: 2px; /* Added letter spacing */
+            margin-bottom: 5px; /* Increased margin */
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>THE RECIPE</h1>
+        <p>FOR BETTER INGREDIENTS</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME PAGE</a></li>
+            <li><a href="recipes.html">RECIPES</a></li>
+            <li><a href="videos.html">VIDEOS</a></li>
+            <li><a href="create_new_menu.html">CREATE NEW MENU</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+        </ul>
+    </nav>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search recipes...">
+        <button type="button" id="searchButton">Search</button>
+    </div>
+
+    <!-- Stylish "BREAKFAST" heading -->
+    <div class="container">
+        <h2 class="text-center breakfast-heading">BREAKFAST</h2>
+    </div>
+
+    <main class="container">
+        <div class="row">
+            <!-- Recipes -->
+            <div class="col-md-4">
+                <div class="recipe-item roti-canai">
+                    <a href="roti_canai_recipe.html">
+                        <img src="RotiCanai.jpg" alt="Roti Canai">
+                        <div class="caption">
+                            <h3>Roti Canai</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="recipe-item dim-sum">
+                    <a href="dim_sum_recipe.html">
+                        <img src="DimSum.jpg" alt="Dim Sum">
+                        <div class="caption">
+                            <h3>Dim Sum</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="recipe-item nasi-lemak">
+                    <a href="nasi_lemak_recipe.html">
+                        <img src="NasiLemak.jpg" alt="Nasi Lemak">
+                        <div class="caption">
+                            <h3>Nasi Lemak</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Stylish "LUNCH" heading -->
+    <div class="container">
+        <h2 class="text-center lunch-heading">LUNCH</h2>
+    </div>
+
+    <main class="container">
+        <div class="row">
+            <!-- Lunch Recipes -->
+            <div class="col-md-4">
+                <div class="recipe-item creamy-butter-chicken">
+                    <a href="creamy_butter_chicken_recipe.html">
+                        <img src="Butter-Chicken1.jpg" alt="Creamy Butter Chicken">
+                        <div class="caption">
+                            <h3>Creamy Butter Chicken</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="recipe-item chicken-fried-rice">
+                    <a href="chicken_fried_rice_recipe.html">
+                        <img src="Chicken-Fried-Rice-square-FS-.jpg" alt="Chicken Fried Rice">
+                        <div class="caption">
+                            <h3>Chicken Fried Rice</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="recipe-item nasi-kandar">
+                    <a href="nasi_kandar_recipe.html">
+                        <img src="Nasi-Kandar.jpg" alt="Nasi Kerabu">
+                        <div class="caption">
+                            <h3>Nasi Kandar</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Stylish "DINNER" heading -->
+    <div class="container">
+        <h2 class="text-center dinner-heading">DINNER</h2>
+    </div>
+
+    <main class="container">
+        <div class="row">
+            <!-- Dinner Recipes -->
+            <div class="col-md-4">
+                <div class="recipe-item chicken-rice-porridge">
+                    <a href="chicken_rice_porridge_recipe.html">
+                        <img src="Chicken-Porridge.jpg" alt="Chicken Rice Porridge">
+                        <div class="caption">
+                            <h3>Chicken Rice Porridge</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="recipe-item mixed-vegetable-soup">
+                    <a href="mixed_vegetable_soup_recipe.html">
+                        <img src="vegetable_soup_recipe-1 (1).jpg" alt="Mixed Vegetable Soup">
+                        <div class="caption">
+                            <h3>Mixed Vegetable Soup</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- Add Char Kway Teow -->
+            <div class="col-md-4">
+                <div class="recipe-item char-kway-teow">
+                    <a href="char_kway_teow_recipe.html">
+                        <img src="char_kuey_teow.jpg" alt="Char Kway Teow">
+                        <div class="caption">
+                            <h3>Char Kway Teow</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById("searchInput");
+            const searchButton = document.getElementById("searchButton");
+            const recipeItems = document.querySelectorAll(".recipe-item");
+            const breakfastHeading = document.querySelector(".breakfast-heading");
+            const lunchHeading = document.querySelector(".lunch-heading");
+            const dinnerHeading = document.querySelector(".dinner-heading");
+
+            searchButton.addEventListener("click", function() {
+                const query = searchInput.value.toLowerCase().trim();
+
+                recipeItems.forEach(function(recipeItem) {
+                    const recipeName = recipeItem.querySelector("h3").textContent.toLowerCase();
+
+                    // Check if recipe name contains the search query
+                    const match = recipeName.includes(query);
+
+                    // Show/hide recipe items based on the search result
+                    if (match) {
+                        recipeItem.style.display = "block";
+                        // Centering the recipe items
+                        recipeItem.style.margin = "0 auto";
+                        recipeItem.querySelector("img").style.margin = "0 auto";
+                    } else {
+                        recipeItem.style.display = "none";
+                    }
+                });
+
+                // Hide irrelevant category headings based on search result
+                if (breakfastHeading.textContent.toLowerCase().includes("breakfast")) {
+                    breakfastHeading.style.display = query ? "block" : "none";
+                }
+                if (lunchHeading.textContent.toLowerCase().includes("lunch")) {
+                    lunchHeading.style.display = query ? "block" : "none";
+                }
+                if (dinnerHeading.textContent.toLowerCase().includes("dinner")) {
+                    dinnerHeading.style.display = query ? "block" : "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

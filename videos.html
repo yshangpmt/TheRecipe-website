@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Recipe</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-image: url('https://cdn.pixabay.com/photo/2019/04/02/04/32/masala-4096891_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 30px 40px; /* Increased padding to adjust height */
+            text-align: center;
+            border-bottom: 6px solid #fff;
+            position: relative; /* Added relative positioning */
+        }
+
+        header::after {
+            content: ''; /* Create pseudo-element */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: -1; /* Place behind the text */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            line-height: 1.2; /* Adjusted line-height for spacing */
+            text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Added text shadow */
+            color: rgb(3, 0, 0); /* Set text color to black */
+            font-weight: bold; /* Added font weight */
+            letter-spacing: 2px; /* Added letter spacing */
+        }
+
+        p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            color: black; /* Change text color to black */
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Add white shadow */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            margin-top: 20px;
+            text-transform: uppercase; /* Convert menu items to uppercase */
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 100px; /* Increased margin for better spacing */
+            position: relative;
+        }
+
+        nav ul li:first-child {
+            margin-left: 20px; /* Adjusted margin for spacing from the left */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: 0.3s;
+            position: relative; /* Added relative positioning */
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.9);
+            top: 100%;
+            left: 0;
+            width: 200px;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        nav ul ul li {
+            display: block;
+            margin: 0;
+        }
+
+        nav ul ul li a {
+            padding: 10px 20px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        nav ul ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        table {
+            margin: 20px auto; /* Center-align the table with some top margin */
+            border-collapse: collapse;
+            width: 80%; /* Adjust table width */
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center; /* Center-align table data */
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: rgba(173, 173, 173, 0.512); /* Light blue for table header */
+        }
+
+        img {
+            width: 340px; /* Set fixed width for images */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Ensure images are centered */
+            margin: 0 auto; /* Center-align the images */
+        }
+
+        iframe {
+            width: 400px; /* Set fixed width for videos */
+            height: 225px; /* Set fixed height for videos */
+            display: block; /* Ensure videos are centered */
+            margin: 0 auto; /* Center-align the videos */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>THE RECIPE</h1>
+        <p>FOR BETTER INGREDIENTS</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME PAGE</a></li>
+            <li><a href="recipes.html">RECIPES</a></li>
+            <li><a href="videos.html">VIDEOS</a></li>
+            <li><a href="create_new_menu.html">CREATE NEW MENU</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="bg-light">
+                    <th>Food Name</th>
+                    <th>Picture</th>
+                    <th>Video</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-primary">
+                    <td>Roti Canai</td>
+                    <td><img src="RotiCanai.jpg" alt="Roti Canai"></td>
+                    <td><iframe width="400" height="225" src="https://www.youtube.com/embed/f4OGNIt_S1I" frameborder="0" allowfullscreen></iframe></td>
+                </tr>
+                <tr>
+                    <td>Dim Sum</td>
+                    <td><img src="DimSum.jpg" alt="Dim Sum"></td>
+                    <td><iframe width="400" height="225" src="https://www.youtube.com/embed/thRXxfLn-Rw" frameborder="0" allowfullscreen></iframe></td>
+                </tr>
+                <tr class="table-primary">
+                    <td>Nasi Lemak</td>
+                    <td><img src="NasiLemak.jpg" alt="Nasi Lemak"></td>
+                    <td><iframe width="400" height="225" src="https://www.youtube.com/embed/IUIs4C86Ilo" frameborder="0" allowfullscreen></iframe></td>
+                </tr>
+                <tr>
+                    <td>Creamy Butter Chicken</td>
+                    <td><img src="Butter-Chicken1.jpg" alt="Creamy Butter Chicken"></td>
+                    <td><iframe width="400" height="225" src="https://www.youtube.com/embed/iI7Girp0a6w" frameborder="0" allowfullscreen></iframe></td>
+                </tr>
+                <tr class="table-primary">
+                    <td>Chicken Fried Rice</td>
+                    <td><img src="Chicken-Fried-Rice-square-FS-.jpg" alt="Chicken Fried Rice"></td>
+                    <td><iframe width="400" height="225" src="https://www.youtube.com/embed/TKZsH_kXtoI" frameborder="0" allowfullscreen></iframe></td>
+                </tr>
+                <tr>
+                    <td>Nasi Kandar</td>
+                    <td><img src="Nasi-Kandar.jpg" alt="Nasi Kandar"></td>
+                    <td><iframe width="400" height="225" src="https://www.youtube.com/embed/NNcpq2WKqD4" frameborder="0" allowfullscreen></iframe></td>
+                </tr>
+                <tr class="table-primary">
+                    <td>Chicken Rice Porridge</td>
+                    <td><img src="Chicken-Porridge.jpg" alt="Chicken Rice Porridge"></td>
+                    <td><iframe width="400" height="225" src="https://www.youtube.com/embed/t2SahnNVULA" frameborder="0" allowfullscreen></iframe></td>
+                </tr>
+                <tr>
+                    <td>Mixed Vegetable Soup</td>
+                    <td><img src="vegetable_soup_recipe-1 (1).jpg" alt="Mixed Vegetable Soup"></td>
+                    <td><iframe width="400" height="225" src="https://www.youtube.com/embed/AdiUTm9HgWo" frameborder="0" allowfullscreen></iframe></td>
+                </tr>
+                <tr class="table-primary">
+                    <td>Char Kway Teow</td>
+                    <td><img src="char_kuey_teow.jpg" alt="Char Kway Teow"></td>
+                    <td><iframe width="400" height="225" src="https://www.youtube.com/embed/3iHctwBBeYc" frameborder="0" allowfullscreen></iframe></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

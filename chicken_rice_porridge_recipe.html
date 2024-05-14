@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - THE RECIPE</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-image: url('https://cdn.pixabay.com/photo/2019/04/02/04/32/masala-4096891_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 30px 40px; /* Increased padding to adjust height */
+            text-align: center;
+            border-bottom: 6px solid #fff;
+            position: relative; /* Added relative positioning */
+        }
+
+        header::after {
+            content: ''; /* Create pseudo-element */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: -1; /* Place behind the text */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            line-height: 1.2; /* Adjusted line-height for spacing */
+            text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Added text shadow */
+            color: rgb(3, 0, 0); /* Set text color to black */
+            font-weight: bold; /* Added font weight */
+            letter-spacing: 2px; /* Added letter spacing */
+        }
+
+        p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            color: black; /* Change text color to black */
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Add white shadow */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            margin-top: 20px;
+            text-transform: uppercase; /* Convert menu items to uppercase */
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 100px; /* Increased margin for better spacing */
+            position: relative;
+        }
+
+        nav ul li:first-child {
+            margin-left: 20px; /* Adjusted margin for spacing from the left */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: 0.3s;
+            position: relative; /* Added relative positioning */
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.9);
+            top: 100%;
+            left: 0;
+            width: 200px;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        nav ul ul li {
+            display: block;
+            margin: 0;
+        }
+
+        nav ul ul li a {
+            padding: 10px 20px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        nav ul ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        main {
+            padding: 20px 40px;
+        }
+
+        .recipe-content {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-top: 50px; /* Add spacing between picture and navigation */
+        }
+
+        .recipe-picture {
+            margin-right: 20px;
+            border: 2px solid #ddd; /* Added border */
+            border-radius: 5px; /* Added border radius */
+            padding: 5px; /* Added padding */
+        }
+
+        .recipe-picture img {
+            max-width: 600px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .recipe-details {
+            flex-grow: 1;
+            margin-bottom: 30px; /* Added margin-bottom for spacing */
+        }
+
+        .recipe-frame {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .recipe-description p,
+        .recipe-details ul,
+        .recipe-details ol {
+            font-size: 1.1em; /* Adjust the font size as needed */
+            text-align: justify;
+        }
+
+        .recipe-description {
+            background-color: #d3d3d3; /* Grey color box for description */
+        }
+
+        .recipe-details ul, .recipe-details ol {
+            background-color: #f5fea2; /* Light yellow color box for ingredients */
+        }
+
+        .recipe-details ol {
+            background-color: #dbdbfc; /* Light purple color box for steps */
+        }
+
+        .recipe-details h2 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .recipe-details li {
+            margin-bottom: 15px; /* Increased spacing between steps */
+        }
+
+        .recipe-details ol {
+            text-align: justify; /* Justify the text for better organization */
+        }
+
+        .recipe-frame ol li {
+            padding-right: 20px; /* Add padding to the right side */
+        }
+
+        .back-button {
+            position: absolute;
+            top: 245px;
+            left: 40px;
+            z-index: 9999;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>THE RECIPE</h1>
+        <p>FOR BETTER INGREDIENTS</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME PAGE</a></li>
+            <li><a href="recipes.html">RECIPES</a></li>
+            <li><a href="videos.html">VIDEOS</a></li>
+            <li><a href="create_new_menu.html">CREATE NEW MENU</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <a href="recipes.html" class="btn btn-primary back-button">
+            <i class="fas fa-arrow-left"></i> Back To Recipes Page
+        </a>
+        <div class="recipe-content">
+            <div class="recipe-picture">
+                <img src="Chicken-Porridge.jpg" alt="Chicken Rice Porridge">
+            </div>
+
+            <div class="recipe-details">
+                <div class="recipe-frame recipe-description">
+                    <h2>Chicken Rice Porridge Recipe</h2>
+                    <p>Chicken rice porridge, also known as "congee" or "chicken congee," is a comforting and nourishing dish enjoyed in many cultures around the world. It is made by cooking rice in a generous amount of water or broth until it breaks down and becomes thick and creamy. The addition of chicken adds protein and flavor to the porridge, making it a satisfying and wholesome meal.</p>
+                </div>
+
+                <div class="recipe-frame">
+                    <h2>Ingredients:</h2>
+                    <!-- Light yellow color box for ingredients -->
+                    <ul>
+                        <li>2 cups rice (400g)</li>
+                        <li>10 cups water (2.4 liters), and a little more to dilute</li>
+                        <li>2 bone-in chicken breasts (skin removed)</li>
+                        <li>Salt and pepper to taste</li>
+                        <li>1 inch ginger (finely julienned) (30g)</li>
+                        <li>3 green onions (finely sliced)</li>
+                        <li>Sesame oil</li>
+                        <li>Soy sauce</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-frame">
+                    <h2>Instructions:</h2>
+                    <!-- Light purple color box for steps -->
+                    <ol>
+                        <li>In a large pot, rinse rice till water runs clear, about 3 to 4 times, drain.</li>
+                        <li>Add 10 cups (2.4 liters) water to the rice and set it on the stove to boil. When water comes to boil, remove lid, add chicken breasts. As soon as water comes back to a boil, add salt and pepper and reduce heat to simmer for about 30 minutes. If porridge gets too thick at any point, stir in ½ cup (120ml) water to dilute.</li>
+                        <li>Remove chicken breasts from pot with tongs. Shred the chicken breasts and return shredded meat to the pot.</li>
+                        <li>Add ginger and one to two teaspoons of sesame oil to the porridge. Turn off heat.</li>
+                        <li>Serve immediately with a sprinkling of green onions, pepper, and soy sauce. Add a few drops of sesame oil if desired.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

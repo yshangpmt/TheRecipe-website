@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - THE RECIPE</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-image: url('https://cdn.pixabay.com/photo/2019/04/02/04/32/masala-4096891_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 30px 40px; /* Increased padding to adjust height */
+            text-align: center;
+            border-bottom: 6px solid #fff;
+            position: relative; /* Added relative positioning */
+        }
+
+        header::after {
+            content: ''; /* Create pseudo-element */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: -1; /* Place behind the text */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            line-height: 1.2; /* Adjusted line-height for spacing */
+            text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Added text shadow */
+            color: rgb(3, 0, 0); /* Set text color to black */
+            font-weight: bold; /* Added font weight */
+            letter-spacing: 2px; /* Added letter spacing */
+        }
+
+        p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            color: black; /* Change text color to black */
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Add white shadow */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            margin-top: 20px;
+            text-transform: uppercase; /* Convert menu items to uppercase */
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 100px; /* Increased margin for better spacing */
+            position: relative;
+        }
+
+        nav ul li:first-child {
+            margin-left: 20px; /* Adjusted margin for spacing from the left */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: 0.3s;
+            position: relative; /* Added relative positioning */
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.9);
+            top: 100%;
+            left: 0;
+            width: 200px;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        nav ul ul li {
+            display: block;
+            margin: 0;
+        }
+
+        nav ul ul li a {
+            padding: 10px 20px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        nav ul ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        main {
+            padding: 20px 40px;
+        }
+
+        .recipe-content {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-top: 50px; /* Add spacing between picture and navigation */
+        }
+
+        .recipe-picture {
+            margin-right: 20px;
+            border: 2px solid #ddd; /* Added border */
+            border-radius: 5px; /* Added border radius */
+            padding: 5px; /* Added padding */
+        }
+
+        .recipe-picture img {
+            max-width: 600px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .recipe-details {
+            flex-grow: 1;
+            margin-bottom: 30px; /* Added margin-bottom for spacing */
+        }
+
+        .recipe-frame {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .recipe-description p,
+        .recipe-details ul,
+        .recipe-details ol {
+            font-size: 1.1em; /* Adjust the font size as needed */
+            text-align: justify;
+        }
+
+        .recipe-description {
+            background-color: #d3d3d3; /* Grey color box for description */
+        }
+
+        .recipe-details ul, .recipe-details ol {
+            background-color: #f5fea2; /* Light yellow color box for ingredients */
+        }
+
+        .recipe-details ol {
+            background-color: #dbdbfc; /* Light purple color box for steps */
+        }
+
+        .recipe-details h2 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .recipe-details li {
+            margin-bottom: 15px; /* Increased spacing between steps */
+        }
+
+        .recipe-details ol {
+            text-align: justify; /* Justify the text for better organization */
+        }
+
+        .recipe-frame ol li {
+            padding-right: 20px; /* Add padding to the right side */
+        }
+
+        .back-button {
+            position: absolute;
+            top: 245px;
+            left: 40px;
+            z-index: 9999;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>THE RECIPE</h1>
+        <p>FOR BETTER INGREDIENTS</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME PAGE</a></li>
+            <li><a href="recipes.html">RECIPES</a></li>
+            <li><a href="videos.html">VIDEOS</a></li>
+            <li><a href="create_new_menu.html">CREATE NEW MENU</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <a href="recipes.html" class="btn btn-primary back-button">
+            <i class="fas fa-arrow-left"></i> Back To Recipes Page
+        </a>
+        <div class="recipe-content">
+            <div class="recipe-picture">
+                <img src="char_kuey_teow.jpg" alt="Char Kway Teow">
+            </div>
+
+            <div class="recipe-details">
+                <div class="recipe-frame recipe-description">
+                    <h2>Char Kway Teow Recipe</h2>
+                    <p>Char Kuey Teow is a popular Malaysian hawker food dish made with flat rice noodles stir-fried with shrimp, bloody cockles, Chinese lap cheong (sausage), eggs, bean sprouts, and chives in a mix of soy sauce seasoning.</p>
+                </div>
+
+                <div class="recipe-frame">
+                    <h2>Ingredients:</h2>
+                    <!-- Light yellow color box for ingredients -->
+                    <ul>
+                        <li>500 g fresh wide rice noodle</li>
+                        <li>2 tablespoon lard, or vegetable oil</li>
+                        <li>2 tablespoon vegetable oil, separated</li>
+                        <li>10 small prawns/shrimp, shelled and deveined</li>
+                        <li>2 garlic cloves, finely chopped</li>
+                        <li>1 Chinese sausage / Lup Chong Sausage, sliced thinly on the diagonal</li>
+                        <li>5 cm piece of fried fish cake, sliced thinly</li>
+                        <li>20 stems garlic chives, cut into 4 pieces</li>
+                        <li>2 1/2 cups bean sprouts</li>
+                        <li>2 eggs, whisked</li>
+                        <li>5 teaspoon dark soy sauce</li>
+                        <li>4 teaspoon light soy</li>
+                        <li>2 teaspoon oyster sauce</li>
+                        <li>4 teaspoon kecap manis / sweet soy sauce</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-frame">
+                    <h2>Instructions:</h2>
+                    <!-- Light purple color box for steps -->
+                    <ol>
+                        <li>Heat 1 tablespoon oil in a large non stick skillet over high heat.</li>
+                        <li>When heated, add shrimp and cook for 1 1/2 minutes until just cooked through, then remove into bowl.</li>
+                        <li>Add Chinese sausage and fish cake, and cook for 1 minute until sausage is caramelised, then add to bowl.</li>
+                        <li>Add 1 tablespoon oil then add egg and cook, pushing in the edges to make a thick omelette. Once set, chop it up roughly using a wooden spoon (see video), then add to bowl.</li>
+                        <li>Add bean sprouts and cook for about 1 minute until just starting to wilt, then add to bowl.</li>
+                        <li>Add lard. Once melted and starting to smoke, add garlic then immediately add noodles. Fold gently 4 times using a spatula + wooden spoon (see video) just to disperse oil through noodles.</li>
+                        <li>Tip all the other ingredients back in plus the chives. Fold gently twice, then pour all the Sauce over.</li>
+                        <li>Gently toss 4 to 6 times to disperse the sauce, pausing in between to allow the noodles to have a chance to caramelise on the edges a bit.</li>
+                        <li>Remove from stove and serve immediately.
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

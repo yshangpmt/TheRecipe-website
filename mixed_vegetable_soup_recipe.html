@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - THE RECIPE</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-image: url('https://cdn.pixabay.com/photo/2019/04/02/04/32/masala-4096891_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 30px 40px; /* Increased padding to adjust height */
+            text-align: center;
+            border-bottom: 6px solid #fff;
+            position: relative; /* Added relative positioning */
+        }
+
+        header::after {
+            content: ''; /* Create pseudo-element */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: -1; /* Place behind the text */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            line-height: 1.2; /* Adjusted line-height for spacing */
+            text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Added text shadow */
+            color: rgb(3, 0, 0); /* Set text color to black */
+            font-weight: bold; /* Added font weight */
+            letter-spacing: 2px; /* Added letter spacing */
+        }
+
+        p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            color: black; /* Change text color to black */
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Add white shadow */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            margin-top: 20px;
+            text-transform: uppercase; /* Convert menu items to uppercase */
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 100px; /* Increased margin for better spacing */
+            position: relative;
+        }
+
+        nav ul li:first-child {
+            margin-left: 20px; /* Adjusted margin for spacing from the left */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: 0.3s;
+            position: relative; /* Added relative positioning */
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.9);
+            top: 100%;
+            left: 0;
+            width: 200px;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        nav ul ul li {
+            display: block;
+            margin: 0;
+        }
+
+        nav ul ul li a {
+            padding: 10px 20px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        nav ul ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        main {
+            padding: 20px 40px;
+        }
+
+        .recipe-content {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-top: 50px; /* Add spacing between picture and navigation */
+        }
+
+        .recipe-picture {
+            margin-right: 20px;
+            border: 2px solid #ddd; /* Added border */
+            border-radius: 5px; /* Added border radius */
+            padding: 5px; /* Added padding */
+        }
+
+        .recipe-picture img {
+            max-width: 600px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .recipe-details {
+            flex-grow: 1;
+            margin-bottom: 30px; /* Added margin-bottom for spacing */
+        }
+
+        .recipe-frame {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .recipe-description p,
+        .recipe-details ul,
+        .recipe-details ol {
+            font-size: 1.1em; /* Adjust the font size as needed */
+            text-align: justify;
+        }
+
+        .recipe-description {
+            background-color: #d3d3d3; /* Grey color box for description */
+        }
+
+        .recipe-details ul, .recipe-details ol {
+            background-color: #f5fea2; /* Light yellow color box for ingredients */
+        }
+
+        .recipe-details ol {
+            background-color: #dbdbfc; /* Light purple color box for steps */
+        }
+
+        .recipe-details h2 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .recipe-details li {
+            margin-bottom: 15px; /* Increased spacing between steps */
+        }
+
+        .recipe-details ol {
+            text-align: justify; /* Justify the text for better organization */
+        }
+
+        .recipe-frame ol li {
+            padding-right: 20px; /* Add padding to the right side */
+        }
+
+        .back-button {
+            position: absolute;
+            top: 245px;
+            left: 40px;
+            z-index: 9999;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>THE RECIPE</h1>
+        <p>FOR BETTER INGREDIENTS</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME PAGE</a></li>
+            <li><a href="recipes.html">RECIPES</a></li>
+            <li><a href="videos.html">VIDEOS</a></li>
+            <li><a href="create_new_menu.html">CREATE NEW MENU</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <a href="recipes.html" class="btn btn-primary back-button">
+            <i class="fas fa-arrow-left"></i> Back To Recipes Page
+        </a>
+        <div class="recipe-content">
+            <div class="recipe-picture">
+                <img src="vegetable_soup_recipe-1 (1).jpg" alt="Mixed Vegetable Soup">
+            </div>
+
+            <div class="recipe-details">
+                <div class="recipe-frame recipe-description">
+                    <h2>Mixed Vegetable Soup Recipe</h2>
+                    <p>This recipe for mixed vegetable soup calls for carrots, celery, broccoli or cauliflower, potato, leek, leafy greens, and other vegetables like green beans, corn, and tomato. Thyme and bay leaf add a wonderful earthy flavor, and pureeing half of the soup creates a nice, smooth texture.</p>
+                </div>
+
+                <div class="recipe-frame">
+                    <h2>Ingredients:</h2>
+                    <!-- Light yellow color box for ingredients -->
+                    <ul>
+                        <li>1 tablespoon olive oil</li>
+                        <li>1 onion, chopped</li>
+                        <li>2 carrots, chopped</li>
+                        <li>1 stalk celery, chopped</li>
+                        <li>1 head broccoli or cauliflower, chopped</li>
+                        <li>1 potato or sweet potato, peeled and chopped</li>
+                        <li>1 leek, chopped, optional</li>
+                        <li>1 bay leaf</li>
+                        <li>1 sprig thyme</li>
+                        <li>Kosher salt, to taste</li>
+                        <li>1 cup green beans, corn, chopped tomato, or other vegetables</li>
+                        <li>3 to 4 cups leafy greens, chopped, such as kale, collards, spinach, watercress, or broccoli rabe</li>
+                        <li>Freshly ground black pepper, to taste</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-frame">
+                    <h2>Instructions:</h2>
+                    <!-- Light purple color box for steps -->
+                    <ol>
+                        <li>Gather the ingredients.</li>
+                        <li>Heat the olive oil in a soup pot.</li>
+                        <li>Add onion, carrots, and celery and cook for 5 minutes.</li>
+                        <li>Add broccoli or cauliflower, potato, leek (if using), bay leaf, and thyme.</li>
+                        <li>Add enough water to cover vegetables, as well as a generous pinch of salt.</li>
+                        <li>Bring soup to a boil, then cover and reduce heat. Simmer soup for about 20 minutes or until vegetables are tender.</li>
+                        <li>Remove about half of the soup to a large measuring cup or another pot and puree using an immersion blender, or place in a blender or food processor and puree.</li>
+                        <li>Return pureed soup to pot. Add remaining vegetables of your choice and the leafy greens. Cook until greens are tender.</li>
+                        <li>Season to taste with salt and pepper and serve.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
